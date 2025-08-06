@@ -5,7 +5,7 @@ from .models import Author, Book
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = '__all__'
+        fields = ['id', 'title', 'publication_year', 'author']
 
     # Custom validation to the BookSerializer to ensure the publication_year is not in the future.
     def validate_publication_year(self, value):
