@@ -1,3 +1,5 @@
+import django_filters
+from django_filters import rest_framework as filters
 from django.shortcuts import render
 from rest_framework import generics, viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
@@ -11,7 +13,13 @@ class ListView(ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filters.OrderingFilter = ['title', 'author', 'publication_year']
 
+    def get_queryset(self):
+        """ This view should return a list of all the purchases for the currently authenticated user."""
+        user = self.request.user
+        return Book.objects.filter()
 
 # For retrieving a single book by ID.
 class DetailView(RetrieveAPIView):
