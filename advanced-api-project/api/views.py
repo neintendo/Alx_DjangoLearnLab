@@ -1,5 +1,6 @@
 import django_filters
 from django_filters import rest_framework as filters
+from rest_framework.filters import SearchFilter
 from django.shortcuts import render
 from rest_framework import generics, viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
@@ -15,6 +16,7 @@ class ListView(ListAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filters.OrderingFilter = ['title', 'author', 'publication_year']
+    filters.SearchFilter = ['title', 'author', 'publication_year']
 
     def get_queryset(self):
         """ This view should return a list of all the purchases for the currently authenticated user."""
