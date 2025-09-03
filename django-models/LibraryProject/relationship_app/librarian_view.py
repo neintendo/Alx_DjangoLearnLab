@@ -12,7 +12,7 @@ def is_librarian(user):
     return False
 
 @user_passes_test(is_librarian, login_url="/librarian/")
-def admin_dashboard(request):
+def librarian_dashboard(request):
     context = {
         'title': 'Librarian Dashboard',
         'welcome_message': 'Welcome to the Librarian Dashboard!',

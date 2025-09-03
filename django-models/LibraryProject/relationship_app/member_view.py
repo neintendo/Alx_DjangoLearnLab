@@ -12,7 +12,7 @@ def is_member(user):
     return False
 
 @user_passes_test(is_member, login_url="/member/")
-def admin_dashboard(request):
+def member_dashboard(request):
     context = {
         'title': 'Member Dashboard',
         'welcome_message': 'Welcome to the Member Dashboard!',
