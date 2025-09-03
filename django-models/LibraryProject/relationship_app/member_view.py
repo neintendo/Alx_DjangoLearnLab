@@ -18,4 +18,4 @@ def member_dashboard(request):
         'welcome_message': 'Welcome to the Member Dashboard!',
         'user': request.user
     }
-    return render(request, 'member_view.html', context) # stub for now
+    return render(request, 'relationship_app/member_view.html', context) # stub for now

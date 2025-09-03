@@ -18,4 +18,4 @@ def librarian_dashboard(request):
         'welcome_message': 'Welcome to the Librarian Dashboard!',
         'user': request.user
     }
-    return render(request, 'librarian_view.html', context) # stub for now
+    return render(request, 'relationship_app/librarian_view.html', context) # stub for now
